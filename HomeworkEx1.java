@@ -17,7 +17,7 @@ public class HomeworkEx1 {
         this.b=b;
     }
     public boolean esteReductibil(){
-        int rezultat=0;
+         int rezultat=0;
          while (Numar != 0){
              rezultat=0;
              while(Numar!=0){

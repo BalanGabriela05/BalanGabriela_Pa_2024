@@ -19,7 +19,7 @@ public class BonusEx1 {
              }
              for(int j=0; j <= n-1; j++){
                   if (((i == n - 1) || (j == n - 1)) && i!=j) {
-                    m[i][j] = 1; // pentru nodul din centru
+                    m[i][j] = 1; //pentru nodul din centru
                   }
              }
 
