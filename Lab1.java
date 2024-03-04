@@ -1,7 +1,43 @@
 public class Lab1 {
+
     public static void main(String args[]) {
+
+    long startRuningTime = System.currentTimeMillis();
+
         Lab1 lab1 = new Lab1();
         lab1.compulsory();
+
+        //Homework
+        HomeworkEx1 a = new HomeworkEx1(4,25);
+        System.out.println(a.esteReductibil());
+
+        HomeworkEx1 b = new HomeworkEx1(1,13,15);
+        b.esteValid();
+        System.out.println(b.list);
+        // Display the running time of the application in nanoseconds or milliseconds.
+        long endRuningTime= System.currentTimeMillis();
+        long totalTime = endRuningTime - startRuningTime;
+        System.out.println(totalTime+" milliseconds");
+
+        // Launch the application from the command line, for example: java Lab1 100 200 1.
+
+        if (args.length < 3) {
+            System.out.println("Not enough arguments!");
+        }
+
+        int x = Integer.parseInt(args[0]);
+        int y = Integer.parseInt(args[1]);
+        int z = Integer.parseInt(args[2]);
+
+        HomeworkEx1 c = new HomeworkEx1(z,x,y);
+        c.esteValid();
+        System.out.println(c.list);
+
+        //Bonus
+        BonusEx1 graph = new BonusEx1(8);
+        graph.WheelGraph();
+
+
     }
     void compulsory() {
         //Display on the screen the message
@@ -22,11 +58,11 @@ public class Lab1 {
         int result;
         result=n*3;
         //add the binary number 10101 to the result;
-        //result=result+0b10101;
-        result = Integer.parseInt("0b10101",2);
+        result=result+0b10101;
+        //result = Integer.parseInt("0b10101",2);
         //add the hexadecimal number FF to the result;
-        //result=result+0xFF;
-        result = Integer.parseInt("0xFF",16);
+        result=result+0xFF;
+        //result = Integer.parseInt("0xFF",16);
         //multiply the result by 6;
         result=result*6;
         System.out.print("result=");
@@ -52,10 +88,5 @@ public class Lab1 {
 
 
     }
-    void homework() {
-//Do stuff
-    }
-    void bonus() {
-//Do stuff
-    }
+
 }
