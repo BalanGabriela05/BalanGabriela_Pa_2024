@@ -28,7 +28,7 @@ public class HomeworkEx1 {
                  Numar=rezultat;
              }
          }
-        // System.out.println(rez);
+        //System.out.println(rezultat);
         return rezultat == kReductibil;
      }
 //    Write a program that finds all k-reductible numbers in a given interval [a,b]. The values a,b,k are given as command line argumens. Validate them.

@@ -2,12 +2,12 @@ public class Lab1 {
 
     public static void main(String args[]) {
 
-    long startRuningTime = System.currentTimeMillis();
+        long startRuningTime = System.currentTimeMillis();
 
         Lab1 lab1 = new Lab1();
         lab1.compulsory();
 
-        //Homework  
+        //Homework
         HomeworkEx1 a = new HomeworkEx1(4,25);
         System.out.println(a.esteReductibil());
 
