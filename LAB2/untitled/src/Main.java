@@ -21,5 +21,18 @@ public class Main {
         d1.setVehicles(v1, v2);
         Depot d2 = new Depot("Depot 2");
         d2.setVehicles(v3);
+
+        // Crearea unui obiect de tip Depot
+        Depot depot = new Depot("Depozit 1");
+        // Crearea unui obiect de tip Vehicle
+        Vehicle vehicle = new Vehicle("Vehicul 1");
+        // Crearea unui obiect de tip Client
+        Client client = new Client("Client 1", ClientType.REGULAR);
+        // Afișarea obiectului de tip Depot
+        System.out.println("Depozit: " + depot);
+        // Afișarea obiectului de tip Vehicle
+        System.out.println("Vehicul: " + vehicle);
+        // Afișarea obiectului de tip Client
+        System.out.println("Client: " + client);
     }
 }
