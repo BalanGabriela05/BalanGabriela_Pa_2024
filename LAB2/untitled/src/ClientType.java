@@ -1,4 +1,5 @@
-public enum ClientType {
+public enum ClientType
+{
     REGULAR,
-    PREMIUM;
+    PREMIUM
 }
