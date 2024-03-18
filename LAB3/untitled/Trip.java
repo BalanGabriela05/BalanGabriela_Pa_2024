@@ -1,53 +1,47 @@
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 public class Trip {
-    private String city;
-    private LocalDate start, end;
+    private LocalTime start;
+    private LocalTime end;
     private List<Attraction> attractions = new ArrayList<>();
-    //… constructors, getters, setters
 
-    public Trip(String city, LocalDate start, LocalDate end, List<Attraction> attractions) {
-        this.city = city;
+
+    public Trip(LocalTime start, LocalTime end, List<Attraction> attractions) {
         this.start = start;
         this.end = end;
         this.attractions = attractions;
     }
-
-    public String getCity() {
-        return city;
+    /**
+     * metoda care returnează o listă cu numele atracțiilor care sunt vizitabile și nu sunt plătibile
+     * sortează mai întâi atracțiile în funcție de ora de deschidere
+     */
+    public List<String> getVisitableAndNotPayableAttractions() {
+        List<String> result = new ArrayList<>();
+        LocalTime current = LocalTime.MIN;
+        attractions.sort(Comparator.comparing(attraction -> ((Visitable) attraction).getOpeningHour()));
+        for (Attraction attraction : attractions) {
+            if ( attraction instanceof Visitable
+                    && !(attraction instanceof Payable))
+            {
+                LocalTime openingHour = ((Visitable) attraction).getOpeningHour();
+                result.add(attraction.getName() + " - Opening hour: " + openingHour + "->" + attraction.getCity());
+                current = openingHour;
+            }
+        }
+        return result;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void sortAttractions() {
+        Collections.sort(attractions);
     }
-
-    public LocalDate getStart() {
-        return start;
-    }
-
-    public void setStart(LocalDate start) {
-        this.start = start;
-    }
-
-    public LocalDate getEnd() {
-        return end;
-    }
-
-    public void setEnd(LocalDate end) {
-        this.end = end;
-    }
-
-    public List<Attraction> getAttractions() {
-        return attractions;
-    }
-
-    public void setAttractions(List<Attraction> attractions) {
-        this.attractions = attractions;
-    }
-//… toString, etc.
 
     @java.lang.Override
     public java.lang.String toString() {
-        return "Trip{" +
-                "city='" + city + '\'' +
+        return "Trip{" + '\'' +
                 ", start=" + start +
                 ", end=" + end +
                 ", attractions=" + attractions +
