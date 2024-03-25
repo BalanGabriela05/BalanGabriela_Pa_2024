@@ -1,5 +1,33 @@
 # BalanGabriela_Pa_2024
 
+Laboratorul 4 :
+- Tema :
+  -----Homework-----
+All the destinations that the drivers pass through:
+Bucuresti
+Suceava
+Iasi
+Brasov
+All the destinations and people who want to go there:
+Bucuresti: [ Ionut ]
+Suceava: [ Maria, Ioana, Ana ]
+Iasi: [ Andrei, Florin, Robert ]
+Brasov: [ Gabriela ]
+
+Nume: Siu, Oraș: West Monte
+Nume: Briana, Oraș: East Shirleyberg
+Nume: Reginald, Oraș: Botsfordburgh
+Nume: Ingrid, Oraș: Lareeville
+Nume: Rodrigo, Oraș: West Tashina
+Nume: Porsche, Oraș: Lake Aguedachester
+
+greedy algorithm :
+Șofer: Andrei, Pasager: Florin, Destinația: Iasi
+Șofer: Maria, Pasager: Ioana, Destinația: Suceava
+Șofer: Ionut, Pasager: Gabriela, Trece prin: Brasov, Destinația finală: Bucuresti
+Șofer: Robert, Pasager: Ana, Trece prin: Suceava, Destinația finală: Iasi
+
+
 Laboratorul 3 :
 - Tema :
 -----Attractions-----
