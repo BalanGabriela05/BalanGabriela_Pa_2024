@@ -9,7 +9,7 @@ shell> report -> creeaza report.html ->deschide in browser
 shell> export -> creeaza repository.json
 shell> exit
 
--Bonus : 
+- Bonus : 
 Grupa Management de proiect: [Floricica Ancuta, Mihaela, Marcica, Dan Balan, Floarea]
 Grupa Resurse Umane: [Ancuta]
 Grupa Programare: [Andreea, Ion Popescu, Justin Istrate]
