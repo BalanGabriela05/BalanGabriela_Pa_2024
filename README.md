@@ -1,5 +1,24 @@
 # BalanGabriela_Pa_2024
 
+Laboratorul 5 :
+- Tema : -----Homework-----
+shell> comanda
+Comandă necunoscută: comanda
+shell> view calea..\masterFile\Ana_4\FileAna.txt -> deschide in notepad fisierul
+shell> report -> creeaza report.html ->deschide in browser
+shell> export -> creeaza repository.json
+shell> exit
+
+-Bonus : 
+Grupa Management de proiect: [Floricica Ancuta, Mihaela, Marcica, Dan Balan, Floarea]
+Grupa Resurse Umane: [Ancuta]
+Grupa Programare: [Andreea, Ion Popescu, Justin Istrate]
+Grupa Design grafic: [Marcel Pavel, Carla s Dream s, Maria Ionescu]
+Grupa Vanzari: [Vasilica Vasi, Serban Chiriac, Antonia]
+Grupa Serviciu Clienti: [Mihaita, Gabriela Balan, Ghita]
+Grupa Marketing: [Vasile Vasilescu, Atonia Ancuta]
+
+
 Laboratorul 4 :
 - Tema :
   -----Homework-----
