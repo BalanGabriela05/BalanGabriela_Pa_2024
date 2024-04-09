@@ -1,5 +1,8 @@
 # BalanGabriela_Pa_2024
 
+Laboratorul 6:
+- Tema : am implementat doar functionalitatiile, fara logica jocului
+
 Laboratorul 5 :
 - Tema : -----Homework-----
 shell> comanda
