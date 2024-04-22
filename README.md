@@ -1,4 +1,30 @@
 # BalanGabriela_Pa_2024
+Laboratorul 7:
+- Tema : pentru n=4
+  ------ RUNDA: 1 ------
+Player 1 a extras: (3, 4)
+Player 2 a extras: (1, 3)
+Player 3 a extras: (2, 1)
+------ RUNDA: 2 ------
+Player 1 a extras: (4, 3)
+Player 2 a extras: (2, 3)
+Player 3 a extras: (3, 1)
+------ RUNDA: 3 ------
+Player 1 a extras: (2, 4)
+Player 2 a extras: (1, 4)
+Player 3 a extras: (1, 2)
+------ RUNDA: 4 ------
+Player 1 a extras: (4, 1)
+Player 2 a extras: (4, 2)
+Player 3 a extras: (3, 2)
+
+---jetoanele valide extrase de fiecare jucator---
+Player 1 a extras secvență validă: (3, 4), (4, 3) -----> 2 puncte
+Player 2 a extras secvență validă:  -----> 0 puncte
+Player 3 a extras secvență validă: (2, 1), (1, 2) -----> 2 puncte
+
+Jocul s-a terminat!
+Câștigătorii sunt Player 1, Player 3 cu 2 puncte fiecare.
 
 Laboratorul 6:
 - Tema : am implementat doar functionalitatiile, fara logica jocului
