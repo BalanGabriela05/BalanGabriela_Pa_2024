@@ -1,21 +1,32 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class Bag {
     private final Queue<Tile> tiles;
+    private final int n;
+    public boolean gameOver = false;
 
     public Bag(int n) {
+        this.n = n;
         this.tiles = new LinkedList<>();
         for (int i = 1; i <= n; i++) {
-            for (int j = i + 1; j <= n; j++) {
-                tiles.add(new Tile(i, j));
+            for (int j = 1; j <= n; j++) {
+                if (i != j) {
+                    tiles.add(new Tile(i, j));
+                }
             }
         }
+        Collections.shuffle((List<?>) tiles);  // Amesteca jetoanele
     }
+    public int getN() {  // Adaugă o metodă pentru a returna valoarea n
+        return n;
+    }
+
+    public synchronized boolean isEmpty() {
+        return tiles.isEmpty();
+    }
+
 
     public synchronized List<Tile> extractTiles(int howMany) {
         List<Tile> extracted = new ArrayList<>();
@@ -28,9 +39,6 @@ public class Bag {
         return extracted;
     }
 
-    public synchronized int getSize() {
-        return tiles.size();
-    }
 
 
 }
