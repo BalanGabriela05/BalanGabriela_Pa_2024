@@ -43,20 +43,25 @@ public class BookDAO extends Library {
 
 
             for (String author_name : authors){
+
                 var authorDAO = new AuthorDAO();
                 Integer authorId= authorDAO.findByName(author_name);
-
                 //DACA autorul nu exista il cream .
                 if(authorId == null){
                     authorId=authorDAO.create(author_name);
                     //con.commit();
                     //authorId = authorDAO.findByName(author_name);
                 }
+
                 prstmt = con.prepareStatement(insertIntoBook_authors);
                 prstmt.setInt(1,bookId);
                 prstmt.setInt(2,authorId);
+
                 prstmt.executeUpdate();
+
+                System.out.println("Autor "+ author_name);
             }
+
 
             if(genres != null){
                 for (String genre_name : genres){
@@ -75,11 +80,13 @@ public class BookDAO extends Library {
                 }}
 
             con.commit();
-        } catch (SQLException e){
-            con.rollback();
-            throw e;
-        } finally {
 
+        } catch (SQLException e){
+            //con.rollback();
+            System.out.println("Books create error");
+            throw new SQLException(e + "Books create error");
+        } finally {
+            con.close();
         }
     }
     public Integer findByName(String title) throws SQLException{
@@ -90,6 +97,8 @@ public class BookDAO extends Library {
             try (ResultSet rs = pstmt.executeQuery()) {
                 return rs.next() ? rs.getInt(1) : null;
             }
+        } finally {
+            con.close();
         }
     }
 
@@ -116,6 +125,9 @@ public class BookDAO extends Library {
             }
         } catch (SQLException e ){
             throw new SQLException(e + " Error in print all books");
+        }finally {
+            con.close();
         }
+
     }
 }

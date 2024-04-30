@@ -24,18 +24,26 @@ public class AuthorDAO extends Library {
                 return rs.getInt(1);// returnează ID-ul noului gen creat
             }
             return null;
+        }finally {
+            con.close();
         }
     }
 
     public Integer findByName(String name) throws SQLException {
         // Connection con = DatabaseConnection.getConnection();
+
         Connection con = dataSource.getConnection();
+
+
         try (PreparedStatement pstmt = con.prepareStatement(idOfAuthor)) {
             pstmt.setString(1, name);
             try (ResultSet rs = pstmt.executeQuery()) {
                 return rs.next() ? rs.getInt(1) : null;
             }
+        } finally {
+            con.close();
         }
+
     }
 
     public String findById(int id) throws SQLException {
@@ -46,6 +54,8 @@ public class AuthorDAO extends Library {
             try (ResultSet rs = pstmt.executeQuery()) {
                 return rs.next() ? rs.getString(1) : null;
             }
+        }finally {
+            con.close();
         }
     }
 

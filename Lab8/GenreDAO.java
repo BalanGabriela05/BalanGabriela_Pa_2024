@@ -24,6 +24,8 @@ public class GenreDAO extends Library{
             }
             return null;
 
+        }finally {
+            con.close();
         }
     }
 
@@ -35,6 +37,8 @@ public class GenreDAO extends Library{
             try (ResultSet rs = pstmt.executeQuery()) {
                 return rs.next() ? rs.getInt(1) : null;
             }
+        }finally {
+            con.close();
         }
     }
 

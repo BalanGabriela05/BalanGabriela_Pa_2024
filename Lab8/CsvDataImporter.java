@@ -32,7 +32,7 @@ public class CsvDataImporter {
             String language;
             int page;
             String title;
-            List<String> authors;
+            List<String> authors = new ArrayList<>();
             String[] authorsArray ;
             data.remove(0); //elimin antetul
 
@@ -43,13 +43,16 @@ public class CsvDataImporter {
                 language = row[6];
                 page = Integer.parseInt(row[7]);
                 String ceva = row[10];
+
                 SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy");
                 Date date = inputFormat.parse(ceva);  // converteste sirul de caractere in obiect Date
                 SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy");
                 String yearString = outputFormat.format(date);  // extrage anul ca sir de caractere
 
                 year = Integer.parseInt(yearString);  // converteste sirul de caractere
+
                 authorsArray =  row[2].split("/");
+
                 authors = new ArrayList<String>(Arrays.asList(authorsArray));
 
                 books.create(year,language,page,title,authors,null);
