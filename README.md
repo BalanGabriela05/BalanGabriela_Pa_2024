@@ -1,4 +1,10 @@
 # BalanGabriela_Pa_2024
+
+Laboratorul 8:
+- Tema: 
+https://github.com/BalanGabriela05/BalanGabriela_Pa_2024/blob/main/lab8.png
+
+
 Laboratorul 7:
 - Tema : pentru n=4
   ------ RUNDA: 1 ------
