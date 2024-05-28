@@ -1,6 +1,6 @@
 package org.example;
 
-import org.testng.annotations.Test;
+import org.example.Test;
 
 public class ExampleClass {
 

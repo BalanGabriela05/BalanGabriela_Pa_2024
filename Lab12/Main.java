@@ -1,45 +1,60 @@
 package org.example;
 
-import org.testng.annotations.Test;
 
-import java.lang.reflect.InvocationTargetException;
+import org.example.Test;
+
 import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
+
 
 public class Main {
-        public static void main(String[] args) {
-            try {
-                Class<?> clazz = loadClass("org.example.ExampleClass");
-                System.out.println("------ClassInfo------");
-                printClassInfo(clazz);
-                System.out.println("------InvokeTestMethods------");
-                invokeTestMethods(clazz);
-            } catch (ClassNotFoundException e) {
-                throw new RuntimeException(e);
-            }
+    public static void main(String[] args) {
+        if (args.length != 1) {
+            System.err.println("Usage: java ClassAnalyzer <fully-qualified-class-name>");
+            System.exit(1);
         }
 
-        private static Class<?> loadClass(String className) throws ClassNotFoundException {
-            return Class.forName(className);
-        }
+        String className = args[0];
+        try {
+            // Load the class dynamically
+            Class<?> clazz = Class.forName(className);
+            System.out.println("Class loaded: " + clazz.getName());
 
-        private static void printClassInfo(Class<?> clazz) {
-            Method[] methods = clazz.getDeclaredMethods();
-            for (Method method : methods) {
-                System.out.println(method);
-            }
-        }
+            // Extract and display class information
+            analyzeClass(clazz);
 
-        private static void invokeTestMethods(Class<?> clazz) {
-            Method[] methods = clazz.getDeclaredMethods();
-            for (Method method : methods) {
-                if (method.isAnnotationPresent(Test.class) && Modifier.isStatic(method.getModifiers())) {
-                    try {
+            // Invoke methods annotated with @Test
+            invokeTestMethods(clazz);
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void analyzeClass(Class<?> clazz) {
+        // Print class methods
+        Method[] methods = clazz.getDeclaredMethods();
+        System.out.println("Methods:");
+        for (Method method : methods) {
+            System.out.println(method);
+        }
+    }
+
+    private static void invokeTestMethods(Class<?> clazz) {
+        Method[] methods = clazz.getDeclaredMethods();
+        for (Method method : methods) {
+            // Check if the method is annotated with @Test
+            if (method.isAnnotationPresent(Test.class)) {
+                try {
+                    // If the method is static and has no parameters, invoke it
+                    if (method.getParameterCount() == 0 && (method.getModifiers() & java.lang.reflect.Modifier.STATIC) != 0) {
+                        method.setAccessible(true);
                         method.invoke(null);
-                    } catch (IllegalAccessException | InvocationTargetException e) {
-                        e.printStackTrace();
+                        System.out.println("Invoked @Test method: " + method.getName());
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
     }
+}
